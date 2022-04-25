@@ -7,8 +7,8 @@ import axios from 'axios';
 
 
 export const listUsers = () => async (dispatch: any) => {
-  const baseUrl = 'https://dummyjson.com/users'
-  
+  const baseUrl = 'https://dummyjson.com/users?limit=100'
+
   try {
     dispatch({
       type: USER_LIST_REQUEST,

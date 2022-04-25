@@ -5,8 +5,8 @@ import { listUsers } from '../redux/actions/userAction';
 import { useSelector, useDispatch } from 'react-redux';
 import Pagination from '../components/pagination';
 import { LinearLoader } from '../components/loader/LinearLoader';
-import {BsSearch} from 'react-icons/bs'
-import Styles from './Table.module.css'
+import { BsSearch } from 'react-icons/bs';
+import Styles from './Table.module.css';
 
 const TableData = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,54 +42,52 @@ const TableData = () => {
   }, [records?.users, search]);
 
   const handleChange = (e: any) => {
-    setSearch(e.target.value)
-  }
+    setSearch(e.target.value);
+  };
 
   return (
-    <div >
+    <div>
       <section>
-      <form
-                style={{ maxWidth: '95%', margin: ' 20px auto' }}
-                className={`form-group pb-3 ${Styles.hasSearch}`}
-              >
-                <BsSearch className={`${Styles.formControlSearchIcon}`} />
-                <input
-                  type="text"
-                  className={`form-control form-control-sm shadow-none ${Styles.SearchBox}`}
-                  placeholder="Search"
-                  aria-label="Search"
-                  onChange={handleChange}
-                />
-              </form>
-              </section>
+        <form
+          style={{ maxWidth: '95%', margin: ' 20px auto' }}
+          className={`form-group pb-3 ${Styles.hasSearch}`}
+        >
+          <BsSearch className={`${Styles.formControlSearchIcon}`} />
+          <input
+            type="text"
+            className={`form-control form-control-sm shadow-none ${Styles.SearchBox}`}
+            placeholder="Search"
+            aria-label="Search"
+            onChange={handleChange}
+          />
+        </form>
+      </section>
 
-              <section style={{ maxWidth: '95%', margin: '20px auto' }}>
-      {loading && <LinearLoader />}
-      <Table striped bordered hover responsive variant="dark">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Maiden Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Blood Group</th>
-            <th>Birth Date</th>
-            <th>Height</th>
-            <th>Weight</th>
-            <th>Eye Color</th>
-          </tr>
-        </thead>
+      <section style={{ maxWidth: '95%', margin: '20px auto' }}>
+        {loading && <LinearLoader />}
+        <Table striped bordered hover responsive variant="dark">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Maiden Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Blood Group</th>
+              <th>Birth Date</th>
+              <th>Height</th>
+              <th>Weight</th>
+              <th>Eye Color</th>
+            </tr>
+          </thead>
 
-        <tbody>
-            {data
-            ?.slice(indexFirstData, indexLastData)
-            ?.map((d: Record) => (
+          <tbody>
+            {data?.slice(indexFirstData, indexLastData)?.map((d: Record) => (
               <>
-                <tr key={d.id} className='table-secondary'>
+                <tr key={d.id} className="table-secondary">
                   <td>{d.id}</td>
                   <td>{d.firstName}</td>
                   <td>{d.lastName}</td>
@@ -106,15 +104,15 @@ const TableData = () => {
                 </tr>
               </>
             ))}
-        </tbody>
-      </Table>
+          </tbody>
+        </Table>
 
-      <Pagination
-        dataPerPage={dataPerPage}
-        totalData={records?.users?.length}
-        paginate={paginate}
-      />
-    </section>
+        <Pagination
+          dataPerPage={dataPerPage}
+          totalData={records?.users?.length}
+          paginate={paginate}
+        />
+      </section>
     </div>
   );
 };
