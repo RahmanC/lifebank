@@ -109,7 +109,7 @@ const TableData = () => {
 
         <Pagination
           dataPerPage={dataPerPage}
-          totalData={records?.users?.length}
+          totalData={data?.length}
           paginate={paginate}
         />
       </section>
