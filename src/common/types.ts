@@ -22,3 +22,10 @@ export interface Record {
     weight: number,
     eyeColor: string
 }
+
+export type Action = {
+    type: string,
+    payload?: boolean
+  }
+
+ 

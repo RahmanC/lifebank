@@ -1,0 +1,36 @@
+/* SEARCH FORM SECTION */
+
+.hasSearch {
+  position: relative;
+}
+
+.SearchBox {
+  padding: 0.5rem 2rem;
+  outline: none;
+  border-radius: 10px;
+  border: 1.8px solid #f6f6f6;
+  color: #555555;
+  background-color: #f6f6f6;
+  font-weight: 500;
+  font-size: 14px;
+  width: 250px;
+}
+
+.SearchBox:focus {
+  font-weight: normal;
+  border: 1.8px solid #f6f6f6;
+  background-color: #f6f6f6;
+}
+
+.formControlSearchIcon {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 1rem;
+  height: 2.3rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  left: 12px;
+  color: #686b6f;
+}

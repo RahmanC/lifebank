@@ -5,13 +5,16 @@ import {
 } from '../constants/userConstant';
 import axios from 'axios';
 
-export const listUsers = () => async (dispatch: (arg0: { type: string; payload?: any; }) => void) => {
+
+export const listUsers = () => async (dispatch: any) => {
+  const baseUrl = 'https://dummyjson.com/users'
+  
   try {
     dispatch({
       type: USER_LIST_REQUEST,
     });
 
-    const { data } = await axios.get(`https://dummyjson.com/users`);
+    const { data } = await axios.get(baseUrl);
 
     dispatch({
       type: USER_LIST_SUCCESS,
