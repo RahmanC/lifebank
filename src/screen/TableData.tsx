@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { listUsers } from '../redux/actions/userAction';
 import { useSelector, useDispatch } from 'react-redux';
 import Pagination from '../components/pagination';
-import { LinearLoader } from '../components/loader/LinearLoader';
-import DynamicTable from '../components/dynamicTable/DynamicTable';
-import Search from '../components/search/Search';
+import  LinearLoader  from '../components/loader';
+import TableComponent from '../components/Table';
+import Search from '../components/search';
 
 const TableData = () => {
   const dispatch: any = useDispatch();
@@ -55,8 +55,8 @@ const TableData = () => {
   // Search handler
   useEffect(() => {
     setData(
-      records?.users?.filter((us: any) => {
-        return Object.values(us).some((name) =>
+      records?.users?.filter((user: any) => {
+        return Object.values(user).some((name) =>
           String(name).toLowerCase().includes(search.toLowerCase())
         );
       })
@@ -78,7 +78,7 @@ const TableData = () => {
 
       <section style={{ maxWidth: '95%', margin: '20px auto' }}>
         {loading && <LinearLoader />}
-        <DynamicTable data={currentData} column={column} />
+        <TableComponent data={currentData} column={column} />
 
         <Pagination
           dataPerPage={dataPerPage}

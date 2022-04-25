@@ -7,14 +7,14 @@ import axios from 'axios';
 
 
 export const listUsers = () => async (dispatch: any) => {
-  const baseUrl = 'https://dummyjson.com/users?limit=100'
+  const baseUrl = 'https://dummyjson.com/'
 
   try {
     dispatch({
       type: USER_LIST_REQUEST,
     });
 
-    const { data } = await axios.get(baseUrl);
+    const { data } = await axios.get(baseUrl + 'users?limit=100');
 
     dispatch({
       type: USER_LIST_SUCCESS,

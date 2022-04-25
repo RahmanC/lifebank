@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
 
-export const LinearLoader = () => {
+const LinearLoader = () => {
   return (
     <React.Fragment>
       <Box sx={{ width: "100%" }}>
@@ -11,3 +11,5 @@ export const LinearLoader = () => {
     </React.Fragment>
   );
 };
+
+export default LinearLoader
